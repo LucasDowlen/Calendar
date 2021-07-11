@@ -1,0 +1,409 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: hidden;
+    overflow: hidden;
+    cursor: default;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -khtml-user-select: none; /* Konqueror HTML */  //seems to not be compiling into the CSS file.
+    user-select: none;
+}
+
+body{
+    background: rgb(27, 27, 27);
+}
+
+input{
+    -webkit-touch-callout: all;
+    -khtml-user-select: all; //probably not compiling either...
+    user-select: all;
+}
+
+.header{
+    background: rgb(18,18,18);
+    display: flex;
+    // height: calc(5.5vw - 1px);
+    height: 20vw;
+    border-bottom: 1px solid rgb(70, 70, 70);
+
+    #displayDate{
+        // margin: 0.6vw 0 0 5vw;
+        // font-size: 7vw;
+
+        margin: 7vw 0 0 10vw;
+        font-size: 9vw;
+    }
+
+    #arrowsContainer{
+        
+        display: flex;
+        margin: 8vw 5vw 0 auto;
+
+        .arrowIcon{
+            //margin: 2.5vw 0 0 0;
+            color: white;
+            // font-size: 3vw;
+            font-size: 9vw;
+        }
+
+        // .leftArrow{
+        //     // margin: 0 0 0 auto;
+        // }
+    
+        // .rightArrow{
+        //     // margin: 0 0 0 auto;
+        // }
+    }
+
+    div{
+        margin: .3vh 0 0 0;
+        color: white;
+        font-size: 4vw;
+        font-weight: 500;
+    }
+}
+
+.daysContainer{
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+
+    .day{
+        // border-right: 1px solid rgb(70, 70, 70);
+        // border-bottom: 1px solid rgb(70, 70, 70);
+        text-align: center;
+
+        height: calc((70vw) / 5);
+
+        transition: all .2s;
+
+        .dayTitle{
+
+            width: 7vw;
+            border-radius: 2vw;
+            color: white;
+            font-size: 4.2vw;
+            // margin: .3vw .3vw 0 12vw;
+            margin: 50% auto;
+        }
+    }
+
+    .inputSection{ //inside .day
+        display: none;
+        // z-index: 1;
+        // position: absolute;
+        // transform: translateY(-28%);
+        // background: rgb(46, 46, 46);
+        // border: .3px solid rgb(151, 147, 137);
+
+        // width: 250px;
+
+
+        div{
+            // padding: .4vw;
+            // color: white;
+            // font-size: 20px;
+        }
+    }
+
+    .menu{ //inside .day
+        display: none;
+        // width: 13vw;
+    }
+
+    .eventList{ //inside .day
+        display: none;
+        .eventContainer{
+            // background:rgb(187,134,252);
+            // display: flex;
+            // border-radius: .3vw;
+            // margin: .2vw auto;
+            // width: 13vw;
+            // height: 1.1em;
+
+            .event{
+                // text-align: left;
+
+                .eventText{
+                    width: 11.5vw;
+                    font-size: 14px;
+                    margin: 0 0 0 0.5vw; //adjust so that the delete icon is not covered by text
+                }
+            }
+
+            .removeEvent{
+                // position: relative;
+                // margin: 0.05vw 0 0 auto;
+                // // margin-top: 0.3vw;
+                // // margin-left: 12.5vw;
+
+                // img{
+                //     width: 1vw;
+                // }
+            }
+        }
+    }
+
+    // .day:hover{
+    //     background:rgb(44, 44, 44);
+    // }
+
+    .leftElement{
+        border-left: 1px solid rgb(70, 70, 70);
+    }
+
+    .currentDay{
+        color: rgb(50, 13, 87) !important;
+        background: rgb(187,134,252);
+    }
+}
+
+@media all and (min-width: 600px){
+    .daysContainer{
+        .day{
+            .dayTitle{
+                font-size: 3.4vw;
+            }  
+        }
+    }
+}
+
+@media all and (min-width: 800px){ //converts to computer view
+
+    .header{
+        height: calc(5.5vw - 1px);
+
+        #displayDate{
+            font-size: 3.8vw;
+
+            margin: 0.6vw 0 0 5vw;
+        }
+
+        #arrowsContainer{
+            margin: 1.5vw 4vw 0 auto;
+    
+            .arrowIcon{
+                font-size: 3.8vw;
+            }
+        }
+    } 
+
+    .standardBg{ //inside daysContainer
+        background: rgb(30,30,30);
+        
+        .inputSection{
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+    
+    .selectedBg{ //inside daysContainer
+        background: rgb(46, 36, 66)!important;
+    }
+
+    .inputSection{ //inside .selected Bg
+        opacity: 1;
+        pointer-events: all;
+
+        .inputContainer{
+
+            .line{
+                position: absolute;
+                margin: -0.15vw auto 0 0.82vw;
+                width: 10.25vw;
+                height: 0.15vw;
+                background:rgb(97, 95, 99);
+
+                transition: all 0.25s;
+            }
+
+            .animatedLine{
+                width: 0vw;
+                background:rgb(187,134,252);
+            }
+
+            input{
+                background: none;
+                border: none;
+                // border-bottom: 0.2vw solid rgb(100, 100, 100);
+                padding: 2px;
+                margin-top: 1vw;
+                height: 1.5vw;
+                width: 10vw;
+                font-size: 1.05vw;
+                color: white;
+                outline: none;
+
+                // transition: all .3s;
+            }
+
+            input:focus ~ .animatedLine{
+
+                // border-bottom: 0.2vw solid rgb(187,134,252);
+                width: 10.25vw;
+
+                // border: 2px solid rgb(63, 63, 63);
+                // border-bottom: 2px solid rgb(53, 45, 83);
+            }
+
+            input:focus::placeholder {
+                color: transparent;
+            }
+
+            a{
+                padding: 0 .4vw;
+                margin: 0 0 0 .4vw;
+                font-size: 1vw;
+                background: #3e5c76;
+                border-radius: .1vw;
+
+                border: 1px solid rgb(41, 65, 50);
+                // transition: all .3s;
+            }
+
+            a:hover{
+                background: #748cab;
+            }
+        }
+    }
+
+    .daysContainer{
+        // display: grid;
+        // grid-template-columns: repeat(7, auto);
+    
+        .day{
+            border-right: 1px solid rgb(70, 70, 70);
+            border-bottom: 1px solid rgb(70, 70, 70);
+            // text-align: center;
+    
+            height: calc((100vh - 5.5vw) / 5 - 1px);
+    
+            // transition: all .2s;
+    
+            .dayTitle{
+                // border-radius: 1vw;
+                // color: white;
+                font-size: 2vw;
+                margin: .3vw 0 0 11.4vw;
+                width: auto;
+            }
+        } 
+
+        .day:hover{
+            background:rgb(44, 44, 44);
+        }
+
+        .inputSection{ //inside .day
+            width: 16vw;
+            display: block;
+            z-index: 1;
+            position: absolute;
+            transform: translateY(-28%);
+            // background: #1d2d44;
+            background: rgb(46, 46, 46);
+            border: .3px solid rgb(151, 147, 137);
+
+            width: 15vw;
+
+            // border-radius: 3px;
+
+            h2{
+                padding: .4vw;
+                color: white;
+                font-size: 20px;
+
+                // &:hover{
+                //    background: #0d1321; 
+                // }
+            }
+
+            .locationTitle{
+                background: none;
+                border: none;
+                outline: none;
+
+                border-bottom: 0.2vw solid rgb(97, 95, 99);
+                color: white;
+
+                margin: 0.5vw 7.322vw 0 0;
+                // font-size: 1vw;
+                width: 6vw;
+
+                font-size: 0.9vw;
+            }
+
+            .locationTitle:focus {
+                border-bottom: 0.2vw solid rgb(187,134,252);
+            }
+
+            // .locationTitle::placeholder{
+            //     margin-left: 2vw;
+            // }
+
+            .locationTitle:focus::placeholder{
+                color: transparent;
+            }
+        }
+
+        // .menu{ //inside .day
+        //     display: block;
+        //     width: 16vw;
+        // }
+
+        .eventList{ //inside .day
+            display: block;
+            .eventContainer{
+                background:rgb(187,134,252);
+                display: flex;
+                border-radius: .3vw;
+                margin: .2vw auto;
+                width: 13vw;
+                height: 1.1em;
+
+                .event{
+                    text-align: left;
+
+                    .eventText{
+                        // width: 11.5vw;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        font-size: 14px;
+                        margin: 0 0 0 0.5vw; //adjust so that the delete icon is not covered by text
+                    }
+                }
+
+                .removeEvent{
+                    position: relative;
+                    margin: 0.05vw 0 0 auto;
+                    // margin-top: 0.3vw;
+                    // margin-left: 12.5vw;
+
+                    img{
+                        width: 1vw;
+                    }
+                }
+            }
+        }
+    } 
+} 
+
+@media all and (min-width: 1000px){
+    .daysContainer{
+        .day{
+            .dayTitle{
+                font-size: 1.6vw;
+                margin: .3vw .3vw 0 12vw;
+            }  
+        }
+    }
+}
+
+@media all and (min-width: 1200px){
+    .daysContainer{
+        .day{
+            .dayTitle{
+                font-size: 1.2vw;
+            }  
+        }
+    }
+}
