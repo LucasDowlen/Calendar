@@ -1,3 +1,8 @@
+#fullViewDay h1 {
+  color: white;
+  font-size: 5vw;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -96,10 +101,6 @@ input {
   width: 11.5vw;
   font-size: 14px;
   margin: 0 0 0 0.5vw;
-}
-
-.daysContainer .leftElement {
-  border-left: 1px solid #464646;
 }
 
 .daysContainer .currentDay {
@@ -274,6 +275,9 @@ input {
   }
   .daysContainer .eventList .eventContainer .removeEvent img {
     width: 1vw;
+  }
+  .daysContainer .leftElement {
+    border-left: 1px solid #464646;
   }
 }
 

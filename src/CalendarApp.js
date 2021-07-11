@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import IndividualDay from './individualDay';
+import IndividualDay from './IndividualDay';
 import {BiLeftArrowAlt, BiRightArrowAlt} from "react-icons/bi";
 
 

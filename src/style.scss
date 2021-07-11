@@ -1,3 +1,5 @@
+@import "day";
+
 *{
     margin: 0;
     padding: 0;
@@ -147,9 +149,10 @@ input{
     //     background:rgb(44, 44, 44);
     // }
 
-    .leftElement{
-        border-left: 1px solid rgb(70, 70, 70);
-    }
+    //moved under Media Query
+    // .leftElement{
+    //     border-left: 1px solid rgb(70, 70, 70);
+    // } 
 
     .currentDay{
         color: rgb(50, 13, 87) !important;
@@ -383,6 +386,10 @@ input{
                     }
                 }
             }
+        }
+
+        .leftElement{
+            border-left: 1px solid rgb(70, 70, 70);
         }
     } 
 } 

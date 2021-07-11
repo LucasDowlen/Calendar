@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
+import {useHistory} from 'react-router-dom';
 import Event from './Event.js';
 
 var inputText;
@@ -13,6 +14,8 @@ function IndividualDay(props) {
     const [eventList, setList] = useState([]);
 
     // var InnerSectionHTML;
+
+    const history = useHistory();
 
     let menuBoxRef = useRef();
 
@@ -96,45 +99,23 @@ function IndividualDay(props) {
         }
     };
 
-
-    // const checkMargin = () => {
-
-    //     // setStageClass('addEvent')
-
-    //     // if((props.day - subtractTimesInto) % 6 === 0 || (props.day - subtractTimesInto) % 7 === 0){
-
-    //     //     setMargin("-18.2vw"); 
-    //     // }
-
-    //     console.log(horizontalMargin);
-    // }
-
-    // if(stageClass === 'menu'){
-    //     InnerSectionHTML =
-    //     <ul>
-    //         <div onClick={checkMargin}>Add Event</div>
-    //         <div>Add Location</div>
-    //         <div>Current Day</div>
-    //         <div>Add Alert</div>
-    //         <div>Add Invites</div>
-    //         <div>Add Notes</div>
-    //     </ul>
-    // }
-
-    // else if(stageClass === 'addEvent'){
-    //     InnerSectionHTML =
-        // <ul>
-        //     <div className="inputContainer">
-        //         <input value={inputValue} onChange={inputTextHandler} placeholder="Add Event"/>
-        //         <a onClick={addEvent}>Add</a> 
-        //     </div>
-        // </ul>
-    // }
-
     const deleteEvent = (identity) => {
 
         setList(eventList.filter((item, index) => index !== identity));
     }
+
+    // const linkToFullDayView = () => {
+    // //     // const history = useHistory();
+    // //     // history.push('/day');
+
+    //     console.log("Redirecting...");
+
+    //     history.push('/day');
+
+    //     // return <Redirect to="/day" />
+    // }
+
+
         //onClick changed to onDoubleClick
     return (
         <div className={`day ${newClass} ${isLeftElement}`} onDoubleClick={() => 
@@ -145,7 +126,7 @@ function IndividualDay(props) {
                 setMargin("-16.8vw");
             }
         }}>
-            <div className={`dayTitle ${isCurrentDay}`}>{props.day}</div>
+            <div className={`dayTitle ${isCurrentDay}`} onDoubleClick={() => history.push({pathname: "/day", state: {day: props.day}})}>{props.day}</div>
 
             {/* was set to change class based on stageClass - may need to change/edit this */}
             {/* removed menu class which replaced above mentioned issue */}
