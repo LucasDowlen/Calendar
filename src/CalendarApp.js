@@ -12,7 +12,7 @@ constructor() {
         months: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         monthNames: [
           "January",
-          "Febuary",
+          "February",
           "March",
           "April",
           "May",
@@ -25,7 +25,7 @@ constructor() {
           "December"
         ],
 
-        monthAbbr: [ //probably remove month abbrivations and possibly functions which assign them;
+        monthAbbr: [ //probably remove month abbreviations and possibly functions which assign them;
             "Jan.",
             "Feb.",
             "Mar.",
@@ -57,8 +57,8 @@ constructor() {
 
     componentWillMount() {
 
-        var today = new Date();
-        var currentMonth = today.getMonth();
+        let today = new Date();
+        let currentMonth = today.getMonth();
 
         this.startCalender(currentMonth);
     }
@@ -135,7 +135,7 @@ render() {
                 <div id="arrowsContainer">
                     <BiLeftArrowAlt className="arrowIcon leftArrow" onClick={() => this.changeMonth(-1)}/> 
                     <BiRightArrowAlt className="arrowIcon rightArrow" onClick={() => this.changeMonth(1)}/>
-                    {/* Left and Right - Arrow styles in the ClassName might be unessesary */}
+                    {/* Left and Right - Arrow styles in the ClassName might be unnecessary */}
                 </div>
 
             </div>
@@ -149,13 +149,13 @@ render() {
 
                     //generate key correctly (bug)
 
-                    return <IndividualDay key={`${data} ${this.state.currentMonth}`} day={data} month={this.state.currentMonth} logUpdate = {(day) => { //updateEvents={this.saveDailyEvents}
+                    return <IndividualDay key={`${data} ${this.state.currentMonth}`} day={data} month={this.state.currentMonth} monthName={this.state.monthNames[this.state.currentMonth]} logUpdate = {(day) => { //fix here and in fullviewday
                         console.log(data + " " + day);
                         //this.state.eventsDictionary[`{this.state.monthNames(this.state.currentMonth)} {data}`] = this.state.list;
                         //console.log(this.state.eventsDictionary);
                         //use the day and month to create a key to persist the events.
                         
-                    }}/>; //removed passing moth abbriviation
+                    }}/>; //removed passing moth abbreviation
                 })}
             </div>
         </div>

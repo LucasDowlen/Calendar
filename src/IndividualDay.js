@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import {useHistory} from 'react-router-dom';
 import Event from './Event.js';
 
-var inputText;
+let inputText;
 
 function IndividualDay(props) {
 
@@ -19,20 +19,20 @@ function IndividualDay(props) {
 
     let menuBoxRef = useRef();
 
-    var isLeftElement;
-    var isCurrentDay;
+    let isLeftElement;
+    let isCurrentDay;
 
 
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth(); //January is 0
-    var yyyy = today.getFullYear();
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth(); //January is 0
+    let yyyy = today.getFullYear();
 
     if(props.day === dd && props.month === mm){
         isCurrentDay = "currentDay"
     }
 
-    var subtractTimesInto = Math.floor(props.day / 7) * 7;
+    let subtractTimesInto = Math.floor(props.day / 7) * 7;
 
     if((props.day - subtractTimesInto) === 1) {
         isLeftElement = "leftElement";
@@ -41,9 +41,10 @@ function IndividualDay(props) {
     useEffect(() => {
 
         const retrievedList = localStorage.getItem(`${props.day} ${props.month} ${yyyy}`);
+        console.log(`${props.day} ${props.month} ${yyyy}`);
 
         if(retrievedList) {
-            setList(JSON.parse(retrievedList));
+            setList(JSON.parse(retrievedList)); //not parsing correctly
         }
 
     }, [])
@@ -59,7 +60,7 @@ function IndividualDay(props) {
     useEffect(() => { //may need to combine useEffect hooks (with eventList triggered)
 
         document.addEventListener("mouseup", (event) => {resetStageClass(event)});
-        // document.addEventListener("mouseup", () => {setClass('standardBg')}); //might be unnessesary now
+        // document.addEventListener("mouseup", () => {setClass('standardBg')}); //might be unnecessary now
 
         return () => {
             document.removeEventListener("mouseup", (event) => {resetStageClass(event)});
@@ -83,7 +84,7 @@ function IndividualDay(props) {
 
     const inputTextHandler = (e) => {
 
-        console.log('inputtexthandler');
+        // console.log('input text handler');
 
         inputText = e.target.value; //probably remove
         setInput(e.target.value);
@@ -91,7 +92,7 @@ function IndividualDay(props) {
 
     const addEvent = () => {
         console.log("EventAdded");
-        if(inputText != "") { //probably replace inputText with inputValue from state;
+        if(inputText !== "") { //probably replace inputText with inputValue from state;
             setList([...eventList, inputText])
             setInput("");
             inputText = "";
@@ -126,7 +127,7 @@ function IndividualDay(props) {
                 setMargin("-16.8vw");
             }
         }}>
-            <div className={`dayTitle ${isCurrentDay}`} onDoubleClick={() => history.push({pathname: "/day", state: {day: props.day}})}>{props.day}</div>
+            <div className={`dayTitle ${isCurrentDay}`} onDoubleClick={() => history.push({pathname: "/day", state: {day: props.day, month: props.month , monthName: props.monthName}})}>{props.day}</div>
 
             {/* was set to change class based on stageClass - may need to change/edit this */}
             {/* removed menu class which replaced above mentioned issue */}
@@ -163,7 +164,7 @@ function IndividualDay(props) {
                         }
                     })}
                 </ul>
-                <div className="day-border"></div>
+                <div className="day-border" />
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-@import "day";
+@import "_day.scss";
 
 *{
     margin: 0;
@@ -7,7 +7,7 @@
     overflow: hidden;
     cursor: default;
     -webkit-touch-callout: none; /* iOS Safari */
-    -khtml-user-select: none; /* Konqueror HTML */  //seems to not be compiling into the CSS file.
+    //-khtml-user-select: none; /* Konqueror HTML */  //seems to not be compiling into the CSS file.
     user-select: none;
 }
 
@@ -16,8 +16,8 @@ body{
 }
 
 input{
-    -webkit-touch-callout: all;
-    -khtml-user-select: all; //probably not compiling either...
+    //-webkit-touch-callout: all; //gives error
+    //-khtml-user-select: all; //probably not compiling either...
     user-select: all;
 }
 
@@ -220,7 +220,7 @@ input{
             }
 
             .animatedLine{
-                width: 0vw;
+                width: 0;
                 background:rgb(187,134,252);
             }
 
@@ -296,7 +296,7 @@ input{
         }
 
         .inputSection{ //inside .day
-            width: 16vw;
+            //width: 16vw;
             display: block;
             z-index: 1;
             position: absolute;

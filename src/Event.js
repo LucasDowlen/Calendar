@@ -5,7 +5,7 @@ export default function Event(props) {
 
     const eventContainer = useRef();
 
-    var eventText = props.text;
+    let eventText = props.text;
 
     // var maxTextLength = ((window.innerWidth / 100) * 11.6) / 7.8;
 
@@ -24,7 +24,7 @@ export default function Event(props) {
                 </div>
             </div>
             <div className="removeEvent" onClick={() => props.delete(props.id)}>
-                <img src={DeleteIcon}/>
+                <img src={DeleteIcon} alt="Delete"/>
             </div>
             {/* onClick={props.delete(props.id)} */}
         </div>

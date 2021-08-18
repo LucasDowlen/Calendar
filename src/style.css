@@ -1,6 +1,49 @@
-#fullViewDay h1 {
+#fullViewDay header {
+  display: flex;
+}
+#fullViewDay header .Month {
+  margin: 0.6vw 0 0 10vw;
   color: white;
-  font-size: 5vw;
+  font-size: 4vw;
+}
+#fullViewDay header .Day {
+  margin: 0 0 0 2vw;
+  color: #8cabc4;
+  font-size: 4.6vw;
+}
+#fullViewDay .hourBars {
+  margin: 1vw 2vw 0 2vw;
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: repeat(24, 7.9916666667vw);
+  border: 1px solid white;
+}
+
+.hour {
+  margin: 0 auto;
+  padding-top: 1vw;
+  width: 100%;
+  border: 1px solid #4be1a2;
+  text-align: center;
+  font-size: 1.2em;
+  color: white;
+  height: calc(100vh - 9em);
+}
+
+.events {
+  margin-top: calc(-100vh + 14em);
+  overflow: visible;
+}
+.events div {
+  margin: 0.5em 0 0.6vw 0.5vw;
+  width: calc(95.9vw / 12 - 1vw);
+  padding-left: 95.9vw/24;
+  padding-right: calc(95.9vw / 12 * 23);
+  color: #320d57;
+  background: #bb86fc;
+  border-radius: 1vw;
+  font-size: 1.15em;
+  text-align: center;
 }
 
 * {
@@ -11,11 +54,7 @@
   cursor: default;
   -webkit-touch-callout: none;
   /* iOS Safari */
-  /* Konqueror HTML */
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 body {
@@ -23,60 +62,43 @@ body {
 }
 
 input {
-  -webkit-touch-callout: all;
-  -webkit-user-select: all;
-     -moz-user-select: all;
-      -ms-user-select: all;
-          user-select: all;
+  user-select: all;
 }
 
 .header {
   background: #121212;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: 20vw;
   border-bottom: 1px solid #464646;
 }
-
 .header #displayDate {
   margin: 7vw 0 0 10vw;
   font-size: 9vw;
 }
-
 .header #arrowsContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: 8vw 5vw 0 auto;
 }
-
 .header #arrowsContainer .arrowIcon {
   color: white;
   font-size: 9vw;
 }
-
 .header div {
-  margin: .3vh 0 0 0;
+  margin: 0.3vh 0 0 0;
   color: white;
   font-size: 4vw;
   font-weight: 500;
 }
 
 .daysContainer {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (auto)[7];
-      grid-template-columns: repeat(7, auto);
+  grid-template-columns: repeat(7, auto);
 }
-
 .daysContainer .day {
   text-align: center;
   height: calc((70vw) / 5);
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  transition: all 0.2s;
 }
-
 .daysContainer .day .dayTitle {
   width: 7vw;
   border-radius: 2vw;
@@ -84,25 +106,20 @@ input {
   font-size: 4.2vw;
   margin: 50% auto;
 }
-
 .daysContainer .inputSection {
   display: none;
 }
-
 .daysContainer .menu {
   display: none;
 }
-
 .daysContainer .eventList {
   display: none;
 }
-
 .daysContainer .eventList .eventContainer .event .eventText {
   width: 11.5vw;
   font-size: 14px;
   margin: 0 0 0 0.5vw;
 }
-
 .daysContainer .currentDay {
   color: #320d57 !important;
   background: #bb86fc;
@@ -113,7 +130,6 @@ input {
     font-size: 3.4vw;
   }
 }
-
 @media all and (min-width: 800px) {
   .header {
     height: calc(5.5vw - 1px);
@@ -128,6 +144,7 @@ input {
   .header #arrowsContainer .arrowIcon {
     font-size: 3.8vw;
   }
+
   .standardBg {
     background: #1e1e1e;
   }
@@ -135,9 +152,11 @@ input {
     opacity: 0;
     pointer-events: none;
   }
+
   .selectedBg {
     background: #2e2442 !important;
   }
+
   .inputSection {
     opacity: 1;
     pointer-events: all;
@@ -148,11 +167,10 @@ input {
     width: 10.25vw;
     height: 0.15vw;
     background: #615f63;
-    -webkit-transition: all 0.25s;
     transition: all 0.25s;
   }
   .inputSection .inputContainer .animatedLine {
-    width: 0vw;
+    width: 0;
     background: #bb86fc;
   }
   .inputSection .inputContainer input {
@@ -169,29 +187,21 @@ input {
   .inputSection .inputContainer input:focus ~ .animatedLine {
     width: 10.25vw;
   }
-  .inputSection .inputContainer input:focus::-webkit-input-placeholder {
-    color: transparent;
-  }
-  .inputSection .inputContainer input:focus:-ms-input-placeholder {
-    color: transparent;
-  }
-  .inputSection .inputContainer input:focus::-ms-input-placeholder {
-    color: transparent;
-  }
   .inputSection .inputContainer input:focus::placeholder {
     color: transparent;
   }
   .inputSection .inputContainer a {
-    padding: 0 .4vw;
-    margin: 0 0 0 .4vw;
+    padding: 0 0.4vw;
+    margin: 0 0 0 0.4vw;
     font-size: 1vw;
     background: #3e5c76;
-    border-radius: .1vw;
+    border-radius: 0.1vw;
     border: 1px solid #294132;
   }
   .inputSection .inputContainer a:hover {
     background: #748cab;
   }
+
   .daysContainer .day {
     border-right: 1px solid #464646;
     border-bottom: 1px solid #464646;
@@ -199,25 +209,23 @@ input {
   }
   .daysContainer .day .dayTitle {
     font-size: 2vw;
-    margin: .3vw 0 0 11.4vw;
+    margin: 0.3vw 0 0 11.4vw;
     width: auto;
   }
   .daysContainer .day:hover {
     background: #2c2c2c;
   }
   .daysContainer .inputSection {
-    width: 16vw;
     display: block;
     z-index: 1;
     position: absolute;
-    -webkit-transform: translateY(-28%);
-            transform: translateY(-28%);
+    transform: translateY(-28%);
     background: #2e2e2e;
     border: 0.3px solid #979389;
     width: 15vw;
   }
   .daysContainer .inputSection h2 {
-    padding: .4vw;
+    padding: 0.4vw;
     color: white;
     font-size: 20px;
   }
@@ -234,15 +242,6 @@ input {
   .daysContainer .inputSection .locationTitle:focus {
     border-bottom: 0.2vw solid #bb86fc;
   }
-  .daysContainer .inputSection .locationTitle:focus::-webkit-input-placeholder {
-    color: transparent;
-  }
-  .daysContainer .inputSection .locationTitle:focus:-ms-input-placeholder {
-    color: transparent;
-  }
-  .daysContainer .inputSection .locationTitle:focus::-ms-input-placeholder {
-    color: transparent;
-  }
   .daysContainer .inputSection .locationTitle:focus::placeholder {
     color: transparent;
   }
@@ -251,11 +250,9 @@ input {
   }
   .daysContainer .eventList .eventContainer {
     background: #bb86fc;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    border-radius: .3vw;
-    margin: .2vw auto;
+    border-radius: 0.3vw;
+    margin: 0.2vw auto;
     width: 13vw;
     height: 1.1em;
   }
@@ -280,17 +277,16 @@ input {
     border-left: 1px solid #464646;
   }
 }
-
 @media all and (min-width: 1000px) {
   .daysContainer .day .dayTitle {
     font-size: 1.6vw;
-    margin: .3vw .3vw 0 12vw;
+    margin: 0.3vw 0.3vw 0 12vw;
   }
 }
-
 @media all and (min-width: 1200px) {
   .daysContainer .day .dayTitle {
     font-size: 1.2vw;
   }
 }
+
 /*# sourceMappingURL=style.css.map */
