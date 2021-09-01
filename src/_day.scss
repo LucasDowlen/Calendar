@@ -2,15 +2,17 @@
     header {
         display: flex;
         .Month {
-            margin: 0.6vw 0 0 10vw; //first value is dependent on differnce between .month font size and .day font size;
+            margin: 0.6vw 0 0 5vw; //first value is dependent on differnce between .month font size and .day font size;
             color: white;
-            font-size: 4vw;
+            font-size: 3.8vw;
+            font-weight: 500;
+
         }
 
         .Day {
-            margin: 0 0 0 2vw;
+            margin: 0.4vw auto 0 2vw;
             color: #8cabc4;
-            font-size: 4.6vw;
+            font-size: 4vw;
         }
     }
 
@@ -21,6 +23,8 @@
         grid-template-columns: repeat((24, 95.9vw / 12));
 
         border: 1px solid white;
+
+        //font-family: "Times New Roman", Times, serif;
 
         //border: 1px solid white;
     }

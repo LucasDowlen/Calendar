@@ -13,6 +13,8 @@ function IndividualDay(props) {
 
     const [eventList, setList] = useState([]);
 
+    const [span, setSpan] = useState(false);
+
     // var InnerSectionHTML;
 
     const history = useHistory();
@@ -149,7 +151,33 @@ function IndividualDay(props) {
                     {/* <h2 className="locationTitle">Add Location</h2> */}
 
                     <input className="locationTitle" placeholder="Add Location"/>
-                    <h2>Current Day</h2>
+
+                    <div className="addTime">
+
+                        <div className="firstTimeSection">
+                            <h3 className="s1title">Time:</h3>
+
+                            <div className="Time">
+                                <input placeholder="12" maxLength="2" />
+                                <h3>:</h3>
+                                <input placeholder="00" maxLength="2" />
+                            </div>
+
+                            <h3> Span </h3>
+                            <input type="checkbox" className="checkbox" onClick={() => {setSpan(!span)}}/>
+                        </div>
+
+                        <div className="TimeContainer">
+                            {span === true &&
+                            <div className="Time">
+                                <input placeholder="12" maxLength="2" />
+                                <h3>:</h3>
+                                <input placeholder="00" maxLength="2" />
+                            </div>}
+                        </div>
+                    </div>
+
+
                     <h2>Add Alert</h2>
                     <h2>Add Invites</h2>
                     <h2>Add Notes</h2>

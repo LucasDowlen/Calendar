@@ -345,6 +345,68 @@ input{
             .locationTitle:focus::placeholder{
                 color: transparent;
             }
+
+            .addTime {
+
+                //.s1title {
+                //    margin-right: 1vw;
+                //}
+
+                .firstTimeSection {
+                    margin-top: 0.6vw;
+                    display: flex;
+                    justify-content: center;
+                    color: #ffffff;
+                    //justify-content: flex-top;
+
+                    .Time{
+                        margin: 0 1.5vw 0 0.5vw;
+                    }
+
+                    .checkbox {
+                        margin: auto 0.5vw;
+                    }
+                }
+
+                .TimeContainer{
+                    height: 1.3em;
+                }
+
+                .Time {
+                    display: flex;
+                    justify-content: left;
+                    margin-left: 4.5vw;
+
+                    h3 {
+                        //text-align: center;
+                        color: white;
+                        height: 1em;
+                        font-weight: normal;
+                    }
+
+                    input {
+                        background: none;
+                        border: none;
+                        width: 2em;
+                        text-align: center;
+                        outline: none;
+                        color: white;
+                        font-size: 1em;
+                    }
+
+                    input:focus {
+                        background: #594291;
+                    }
+
+                    input::placeholder {
+                        font-size: 1em;
+                    }
+
+                    input:focus::placeholder{
+                        color: transparent;
+                    }
+                }
+            }
         }
 
         // .menu{ //inside .day
