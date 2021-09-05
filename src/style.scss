@@ -359,8 +359,17 @@ input{
                     color: #ffffff;
                     //justify-content: flex-top;
 
+                    h3 {
+                        margin-top: -0.15em;
+                        font-size: 1.1em;
+                    }
+
                     .Time{
-                        margin: 0 1.5vw 0 0.5vw;
+                        margin: 0 1vw 0 0.5vw;
+
+                        h3 {
+                            margin-top: -0.15em;
+                        }
                     }
 
                     .checkbox {
@@ -368,18 +377,44 @@ input{
                     }
                 }
 
-                .TimeContainer{
-                    height: 1.3em;
+                .alertContainer {
+
+                    padding-bottom: 0.6em;
+
+                    display: flex;
+                    //justify-content: center;
+
+                    h3 {
+                        margin-left: 1.5vw;
+                        color: white;
+                    }
+
+                    input {
+                        margin: auto 0 auto 1vw;
+                    }
+
+                }
+
+                //here
+                .TimeContainer {
+                    //padding: 0.1vw 0;
+                    padding: 0 0.1vw;
+
+                    //transition: all 1s ease;
+                }
+
+                .alertContainer input:focus ~ .TimeContainer{
+                    height: 1.2em;
                 }
 
                 .Time {
                     display: flex;
                     justify-content: left;
-                    margin-left: 4.5vw;
+                    margin-left: 4.55vw;
 
                     h3 {
                         //text-align: center;
-                        margin-top: -0.15em;
+                        margin-top: -0.2em;
                         color: white;
                         height: 1em;
                         font-weight: normal;
@@ -461,7 +496,7 @@ input{
             border-left: 1px solid rgb(70, 70, 70);
         }
     } 
-} 
+}
 
 @media all and (min-width: 1000px){
     .daysContainer{

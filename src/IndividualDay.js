@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import {useHistory} from 'react-router-dom';
 import Event from './Event.js';
 
-//make sure ending time is after starting time
+//make sure ending time is after starting time.
 
 function IndividualDay(props) {
 
@@ -95,7 +95,7 @@ function IndividualDay(props) {
 
         // console.log('input text handler');
 
-        inputText = e.target.value; //probably remove
+        // inputText = e.target.value; //probably remove
         setInput(e.target.value);
     };
 
@@ -104,8 +104,8 @@ function IndividualDay(props) {
         if(inputText !== "") { //probably replace inputText with inputValue from state;
             //
             // let hoursList = [hourInput, 0, 0, 0];
-
-            setList([...eventList, [inputText, [hourInput, minuteInput, endingHour, endingMinute]]]);
+            console.log(inputValue + ' Test');
+            setList([...eventList, [inputValue, [hourInput, minuteInput, endingHour, endingMinute]]]);
             setInput("");
             inputText = "";
             console.log(eventList);
@@ -169,7 +169,7 @@ function IndividualDay(props) {
 
             {/* was set to change class based on stageClass - may need to change/edit this */}
             {/* removed menu class which replaced above mentioned issue */}
-            <div ref={menuBoxRef} className={`inputSection`} style={{marginLeft: horizontalMargin}}>
+            <div ref={menuBoxRef} className={`inputSection`} style={{marginLeft: horizontalMargin, marginTop: '1.4vw'}}>
                 {/* {InnerSectionHTML} */}
 
 
@@ -187,6 +187,8 @@ function IndividualDay(props) {
                     {/* <h2 className="locationTitle">Add Location</h2> */}
 
                     <input className="locationTitle" placeholder="Add Location"/>
+
+                    {/*Add Location Functionality (add value set to input and pass to events)*/}
 
                     <div className="addTime">
 
@@ -211,20 +213,21 @@ function IndividualDay(props) {
                                 <input value={endingMinute} onChange={(e) => setTime(e, 3)} placeholder="00" type="number" />
                             </div>}
                         </div>
+
+                        <div className="alertContainer">
+                            <h3> Make Alert </h3>
+                            <input type="checkbox" />
+                        </div>
                     </div>
-
-
-                    <h2>Add Alert</h2>
-                    <h2>Add Invites</h2>
-                    <h2>Add Notes</h2>
                 </ul>
             </div>
             
             <div>
                 <ul className="eventList">
                     {eventList.map((data, eventKey) => {
-                        if(data !== ""){
-                            return <Event id={eventKey} text={data} delete={deleteEvent} key={props.day * props.month}/>
+                        if(data[0] !== ""){
+                            console.log(data[0]);
+                            return <Event id={eventKey} text={data[0]} delete={deleteEvent} key={props.day.toString() + props.month.toString() + eventKey.toString()}/>
                         }
                     })}
                 </ul>

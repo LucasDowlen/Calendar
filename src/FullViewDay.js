@@ -85,10 +85,13 @@ function FullViewDay() {
                             margin = 0;
                         }
 
+                        distanceBetween -= 2; //to compensate for paddingLeft;
+
                         distanceBetween = distanceBetween.toString() + "vw";
                         margin = margin.toString() + "vw";
 
-                        return <div key={index} style={{marginLeft: margin, width: distanceBetween}}> {value[0]}   Temp: {value[1][0]}:{value[1][1]} </div>
+                        return <div key={index} style={{marginLeft: margin, width: distanceBetween, paddingLeft: "2vw"}}> {value[0]} </div>
+                        // Temp: {value[1][0]}:{value[1][1]}
                     })}
                 </div>
             </div>
