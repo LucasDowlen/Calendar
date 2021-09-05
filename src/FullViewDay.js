@@ -55,7 +55,40 @@ function FullViewDay() {
 
                 <div className="events">
                     {eventList.map((value, index) => {
-                        return <div key={index}> {value} </div>
+                        console.log(value);
+
+                        let distanceBetween;
+                        let margin;
+
+                        if (value[1][2] !== "") {
+
+                            let endingMinute;
+
+                            value[1][3] === "" ? endingMinute = "00" : endingMinute = value[1][3];
+
+                            let firstValueSet = parseInt(value[1][0]) * 60 + parseInt(value[1][1]) - 60;
+                            let secondValueSet = parseInt(value[1][2]) * 60 + parseInt(endingMinute);
+
+                            margin = firstValueSet / 60 * (95.9 / 12); //last caculation in parenthesis is the width in vw of a single hour section.
+                            distanceBetween = ((secondValueSet - firstValueSet) / 60 * (95.9 / 12));
+
+                            console.log(distanceBetween);
+                        }
+
+                        else if (value[1][0] !== "") {
+                            margin = ((parseInt(value[1][0]) * 60 + parseInt(value[1][1])) / 60 * (95.9 / 12));
+                            distanceBetween = 95.9 / 12;
+                        }
+
+                        else {
+                            distanceBetween = 191.8
+                            margin = 0;
+                        }
+
+                        distanceBetween = distanceBetween.toString() + "vw";
+                        margin = margin.toString() + "vw";
+
+                        return <div key={index} style={{marginLeft: margin, width: distanceBetween}}> {value[0]}   Temp: {value[1][0]}:{value[1][1]} </div>
                     })}
                 </div>
             </div>

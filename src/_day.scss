@@ -51,12 +51,13 @@
 .events {
     //position: absolute;
     margin-top: calc(-100vh + 14em);
+    padding-right: calc(95.9vw / 12 * 23);
     overflow: visible;
     div {
-        margin: 0.5em 0 0.6vw 0.5vw;
-        width: calc(95.9vw / 12 - 1vw);
+        //margin: 0.5em 0 0.6vw 0.5vw;
+        margin: 0.5em 0 0.6vw 0;
+        //width: calc(95.9vw / 12 - 1vw);
         padding-left: 95.9vw/ 24;
-        padding-right: calc(95.9vw / 12 * 23);
         color: rgb(50, 13, 87);
         background:rgb(187,134,252);
         border-radius: 1vw;

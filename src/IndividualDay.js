@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import {useHistory} from 'react-router-dom';
 import Event from './Event.js';
 
-let inputText;
+//make sure ending time is after starting time
 
 function IndividualDay(props) {
 
@@ -10,6 +10,11 @@ function IndividualDay(props) {
     // const [stageClass, setStageClass] = useState('menu');
     const [horizontalMargin, setMargin] = useState("14.9vw");
     const [inputValue, setInput] = useState('');
+    const [hourInput, setHour] = useState(''); //new
+    const [minuteInput, setMinute] = useState(''); //newer
+    const [endingHour, setEndingHour] = useState(''); //new
+    const [endingMinute, setEndingMinute] = useState(''); //newer
+
 
     const [eventList, setList] = useState([]);
 
@@ -20,6 +25,8 @@ function IndividualDay(props) {
     const history = useHistory();
 
     let menuBoxRef = useRef();
+
+    let inputText;
 
     let isLeftElement;
     let isCurrentDay;
@@ -46,7 +53,7 @@ function IndividualDay(props) {
         console.log(`${props.day} ${props.month} ${yyyy}`);
 
         if(retrievedList) {
-            setList(JSON.parse(retrievedList)); //not parsing correctly
+            setList(JSON.parse(retrievedList));
         }
 
     }, [])
@@ -95,7 +102,10 @@ function IndividualDay(props) {
     const addEvent = () => {
         console.log("EventAdded");
         if(inputText !== "") { //probably replace inputText with inputValue from state;
-            setList([...eventList, inputText])
+            //
+            // let hoursList = [hourInput, 0, 0, 0];
+
+            setList([...eventList, [inputText, [hourInput, minuteInput, endingHour, endingMinute]]]);
             setInput("");
             inputText = "";
             console.log(eventList);
@@ -103,23 +113,49 @@ function IndividualDay(props) {
     };
 
     const deleteEvent = (identity) => {
-
         setList(eventList.filter((item, index) => index !== identity));
     }
 
-    // const linkToFullDayView = () => {
-    // //     // const history = useHistory();
-    // //     // history.push('/day');
-
-    //     console.log("Redirecting...");
-
-    //     history.push('/day');
-
-    //     // return <Redirect to="/day" />
-    // }
+    const setTime = (e, timeValueSet) => {
 
 
-        //onClick changed to onDoubleClick
+        if(timeValueSet === 0) {
+
+            if(e.target.value.toString().slice(-2) > 23) return;
+
+            if(e.target.value.toString().length === 3 && hourInput.toString().charAt(0) !== "0") return;
+
+            setHour(("0" + e.target.value).slice(-2));
+        }
+
+        else if (timeValueSet === 1) {
+
+            if(e.target.value.toString().slice(-2) > 59) return;
+
+            if(e.target.value.toString().length === 3 && minuteInput.toString().charAt(0) !== "0") return;
+
+            setMinute(("0" + e.target.value).slice(-2));
+        }
+
+        else if (timeValueSet === 2) {
+
+            if(e.target.value.toString().slice(-2) > 24) return;
+
+            if(e.target.value.toString().length === 3 && endingHour.toString().charAt(0) !== "0") return;
+
+            setEndingHour(("0" + e.target.value).slice(-2));
+        }
+
+        else if (timeValueSet === 3) {
+
+            if(e.target.value.toString().slice(-2) > 60) return;
+
+            if(e.target.value.toString().length === 3 && endingMinute.toString().charAt(0) !== "0") return;
+
+            setEndingMinute(("0" + e.target.value).slice(-2));
+        }
+    }
+
     return (
         <div className={`day ${newClass} ${isLeftElement}`} onDoubleClick={() => 
         {
@@ -141,7 +177,7 @@ function IndividualDay(props) {
                 <ul> 
                     {/* onClick={checkMargin} */}
                     <div className="inputContainer">
-                        <input value={inputValue} onChange={inputTextHandler} placeholder="Add Event"/> 
+                        <input value={inputValue} onChange={inputTextHandler} placeholder="Add Event"/>
 
                         <a onClick={addEvent}>Add</a> 
                         <div className="line"/>
@@ -158,9 +194,9 @@ function IndividualDay(props) {
                             <h3 className="s1title">Time:</h3>
 
                             <div className="Time">
-                                <input placeholder="12" maxLength="2" />
+                                <input value={hourInput} onChange={(e) => setTime(e, 0)} placeholder="00" type="number"/>
                                 <h3>:</h3>
-                                <input placeholder="00" maxLength="2" />
+                                <input value={minuteInput} onChange={(e) => setTime(e, 1)} placeholder="00" type="number" />
                             </div>
 
                             <h3> Span </h3>
@@ -170,9 +206,9 @@ function IndividualDay(props) {
                         <div className="TimeContainer">
                             {span === true &&
                             <div className="Time">
-                                <input placeholder="12" maxLength="2" />
+                                <input value={endingHour} onChange={(e) => setTime(e, 2)} placeholder="00" type="number" />
                                 <h3>:</h3>
-                                <input placeholder="00" maxLength="2" />
+                                <input value={endingMinute} onChange={(e) => setTime(e, 3)} placeholder="00" type="number" />
                             </div>}
                         </div>
                     </div>

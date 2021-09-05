@@ -33,13 +33,12 @@
 
 .events {
   margin-top: calc(-100vh + 14em);
+  padding-right: calc(95.9vw / 12 * 23);
   overflow: visible;
 }
 .events div {
-  margin: 0.5em 0 0.6vw 0.5vw;
-  width: calc(95.9vw / 12 - 1vw);
+  margin: 0.5em 0 0.6vw 0;
   padding-left: 95.9vw/24;
-  padding-right: calc(95.9vw / 12 * 23);
   color: #320d57;
   background: #bb86fc;
   border-radius: 1vw;
@@ -267,6 +266,7 @@ input {
     margin-left: 4.5vw;
   }
   .daysContainer .inputSection .addTime .Time h3 {
+    margin-top: -0.15em;
     color: white;
     height: 1em;
     font-weight: normal;
@@ -279,6 +279,11 @@ input {
     outline: none;
     color: white;
     font-size: 1em;
+  }
+  .daysContainer .inputSection .addTime .Time input::-webkit-outer-spin-button,
+.daysContainer .inputSection .addTime .Time input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
   .daysContainer .inputSection .addTime .Time input:focus {
     background: #594291;

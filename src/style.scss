@@ -379,6 +379,7 @@ input{
 
                     h3 {
                         //text-align: center;
+                        margin-top: -0.15em;
                         color: white;
                         height: 1em;
                         font-weight: normal;
@@ -392,6 +393,12 @@ input{
                         outline: none;
                         color: white;
                         font-size: 1em;
+                    }
+
+                    input::-webkit-outer-spin-button,
+                    input::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
                     }
 
                     input:focus {
