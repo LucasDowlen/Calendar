@@ -15,6 +15,8 @@ function IndividualDay(props) {
     const [endingHour, setEndingHour] = useState(''); //new
     const [endingMinute, setEndingMinute] = useState(''); //newer
 
+    const [location, setLocatoin] = useState('');
+
 
     const [eventList, setList] = useState([]);
 
@@ -105,7 +107,7 @@ function IndividualDay(props) {
             //
             // let hoursList = [hourInput, 0, 0, 0];
             console.log(inputValue + ' Test');
-            setList([...eventList, [inputValue, [hourInput, minuteInput, endingHour, endingMinute]]]);
+            setList([...eventList, [inputValue, [hourInput, minuteInput, endingHour, endingMinute], location]]);
             setInput("");
             inputText = "";
             console.log(eventList);
@@ -186,7 +188,9 @@ function IndividualDay(props) {
 
                     {/* <h2 className="locationTitle">Add Location</h2> */}
 
-                    <input className="locationTitle" placeholder="Add Location"/>
+                    <input className="locationTitle" placeholder="Add Location" value={location} onChange={(e) => {setLocatoin(e.target.value)}}/>
+
+                    {/*//here-1*/}
 
                     {/*Add Location Functionality (add value set to input and pass to events)*/}
 

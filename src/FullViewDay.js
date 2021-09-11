@@ -60,11 +60,14 @@ function FullViewDay() {
                         let distanceBetween;
                         let margin;
 
-                        if (value[1][2] !== "") {
+                        if(value [1][1] === "") value[1][1] = "00";
+                        if(value [1][3] === "") value[1][3] = "00";
 
-                            let endingMinute;
+                        if ((value[1][2] !== "" && value[1][0]) && ((parseInt(value[1][2]) - parseInt(value[1][0])) > 0 || ((parseInt(value[1][2]) - parseInt(value[1][0])) === 0 && (parseInt(value[1][3]) - parseInt(value[1][1])) >= 1))){ //changed since ran
 
-                            value[1][3] === "" ? endingMinute = "00" : endingMinute = value[1][3];
+                            let endingMinute = value[1][3]; //updated since empty value will auto defult to "00"
+
+                            // value[1][3] === "" ? endingMinute = "00" : endingMinute = value[1][3];
 
                             let firstValueSet = parseInt(value[1][0]) * 60 + parseInt(value[1][1]) - 60;
                             let secondValueSet = parseInt(value[1][2]) * 60 + parseInt(endingMinute);
@@ -76,7 +79,7 @@ function FullViewDay() {
                         }
 
                         else if (value[1][0] !== "") {
-                            margin = ((parseInt(value[1][0]) * 60 + parseInt(value[1][1])) / 60 * (95.9 / 12));
+                            margin = (((parseInt(value[1][0]) -1) * 60 + parseInt(value[1][1])) / 60 * (95.9 / 12));
                             distanceBetween = 95.9 / 12;
                         }
 
@@ -90,7 +93,11 @@ function FullViewDay() {
                         distanceBetween = distanceBetween.toString() + "vw";
                         margin = margin.toString() + "vw";
 
-                        return <div key={index} style={{marginLeft: margin, width: distanceBetween, paddingLeft: "2vw"}}> {value[0]} </div>
+                        let locationText;
+
+                        value[2] !== "" ? locationText = `-- (at ${value[2]})` : locationText = "";
+
+                        return <div key={index} style={{marginLeft: margin, width: distanceBetween, paddingLeft: "2vw"}}> {value[0]} {locationText} </div>
                         // Temp: {value[1][0]}:{value[1][1]}
                     })}
                 </div>
