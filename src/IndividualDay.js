@@ -218,10 +218,10 @@ function IndividualDay(props) {
                             </div>}
                         </div>
 
-                        <div className="alertContainer">
-                            <h3> Make Alert </h3>
-                            <input type="checkbox" />
-                        </div>
+                        {/*<div className="alertContainer">*/}
+                        {/*    <h3> Make Alert </h3>*/}
+                        {/*    <input type="checkbox" />*/}
+                        {/*</div>*/}
                     </div>
                 </ul>
             </div>

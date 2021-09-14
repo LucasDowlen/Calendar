@@ -262,17 +262,6 @@ input {
   .daysContainer .inputSection .addTime .firstTimeSection .checkbox {
     margin: auto 0.5vw;
   }
-  .daysContainer .inputSection .addTime .alertContainer {
-    padding-bottom: 0.6em;
-    display: flex;
-  }
-  .daysContainer .inputSection .addTime .alertContainer h3 {
-    margin-left: 1.5vw;
-    color: white;
-  }
-  .daysContainer .inputSection .addTime .alertContainer input {
-    margin: auto 0 auto 1vw;
-  }
   .daysContainer .inputSection .addTime .TimeContainer {
     padding: 0 0.1vw;
   }
