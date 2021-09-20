@@ -164,7 +164,8 @@ function IndividualDay(props) {
             setClass('selectedBg');
 
             if((props.day - subtractTimesInto) % 6 === 0 || (props.day - subtractTimesInto) % 7 === 0){
-                setMargin("-16.8vw");
+                // setMargin("-16.8vw");
+                setMargin("-15.8vw");
             }
         }}>
             <div className={`dayTitle ${isCurrentDay}`} onDoubleClick={() => history.push({pathname: "/day", state: {day: props.day, month: props.month , monthName: props.monthName}})}>{props.day}</div>

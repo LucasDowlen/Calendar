@@ -263,7 +263,7 @@ input {
     margin: auto 0.5vw;
   }
   .daysContainer .inputSection .addTime .TimeContainer {
-    padding: 0 0.1vw;
+    padding: 0 0.1vw 1vw 0;
   }
   .daysContainer .inputSection .addTime .alertContainer input:focus ~ .TimeContainer {
     height: 1.2em;
