@@ -1,6 +1,6 @@
 # Project Infomation
 
-this project is a calendar web application built with ReactJs that handles adding events and setting times for them. 
+This project is a calendar web application built with ReactJs that handles adding events and setting times for them. 
 The events sceduled throughout your day can be visualised in a seperate window.
 
 
