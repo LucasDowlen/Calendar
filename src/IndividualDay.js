@@ -2,8 +2,6 @@ import React, {useState, useEffect, useRef} from 'react';
 import {useHistory} from 'react-router-dom';
 import Event from './Event.js';
 
-//make sure ending time is after starting time.
-
 function IndividualDay(props) {
 
     const [newClass, setClass] = useState('standardBg');
@@ -68,14 +66,12 @@ function IndividualDay(props) {
 
     }, [eventList]);
 
-    useEffect(() => { //may need to combine useEffect hooks (with eventList triggered)
+    useEffect(() => {
 
         document.addEventListener("mouseup", (event) => {resetStageClass(event)});
-        // document.addEventListener("mouseup", () => {setClass('standardBg')}); //might be unnecessary now
 
         return () => {
             document.removeEventListener("mouseup", (event) => {resetStageClass(event)});
-            // document.removeEventListener("mouseup", () => {setClass('standardBg')});
         }
     }, [newClass]);
 
@@ -87,25 +83,17 @@ function IndividualDay(props) {
 
         if(menuBoxRef.current != null && !menuBoxRef.current.contains(event.target) && newClass === 'selectedBg'){
             console.log(menuBoxRef.current + " MenuBoxRef");
-            // setStageClass('menu');
-            setClass('standardBg'); //allows double click functionality
-            // console.log("Not clicking menu");
+            setClass('standardBg');
         }
     };
 
     const inputTextHandler = (e) => {
-
-        // console.log('input text handler');
-
-        // inputText = e.target.value; //probably remove
         setInput(e.target.value);
     };
 
     const addEvent = () => {
         console.log("EventAdded");
-        if(inputText !== "") { //probably replace inputText with inputValue from state;
-            //
-            // let hoursList = [hourInput, 0, 0, 0];
+        if(inputText !== "") {
             console.log(inputValue + ' Test');
             setList([...eventList, [inputValue, [hourInput, minuteInput, endingHour, endingMinute], location]]);
             setInput("");
@@ -119,8 +107,6 @@ function IndividualDay(props) {
     }
 
     const setTime = (e, timeValueSet) => {
-
-
         if(timeValueSet === 0) {
 
             if(e.target.value.toString().slice(-2) > 23) return;
@@ -129,7 +115,6 @@ function IndividualDay(props) {
 
             setHour(("0" + e.target.value).slice(-2));
         }
-
         else if (timeValueSet === 1) {
 
             if(e.target.value.toString().slice(-2) > 59) return;
@@ -138,7 +123,6 @@ function IndividualDay(props) {
 
             setMinute(("0" + e.target.value).slice(-2));
         }
-
         else if (timeValueSet === 2) {
 
             if(e.target.value.toString().slice(-2) > 24) return;
@@ -147,7 +131,6 @@ function IndividualDay(props) {
 
             setEndingHour(("0" + e.target.value).slice(-2));
         }
-
         else if (timeValueSet === 3) {
 
             if(e.target.value.toString().slice(-2) > 60) return;
@@ -164,21 +147,12 @@ function IndividualDay(props) {
             setClass('selectedBg');
 
             if((props.day - subtractTimesInto) % 6 === 0 || (props.day - subtractTimesInto) % 7 === 0){
-                // setMargin("-16.8vw");
                 setMargin("-15.8vw");
             }
         }}>
             <div className={`dayTitle ${isCurrentDay}`} onDoubleClick={() => history.push({pathname: "/day", state: {day: props.day, month: props.month , monthName: props.monthName}})}>{props.day}</div>
-
-            {/* was set to change class based on stageClass - may need to change/edit this */}
-            {/* removed menu class which replaced above mentioned issue */}
             <div ref={menuBoxRef} className={`inputSection`} style={{marginLeft: horizontalMargin, marginTop: '1.4vw'}}>
-                {/* {InnerSectionHTML} */}
-
-
-                {/* ul and contents new */}
-                <ul> 
-                    {/* onClick={checkMargin} */}
+                <ul>
                     <div className="inputContainer">
                         <input value={inputValue} onChange={inputTextHandler} placeholder="Add Event"/>
 
@@ -187,13 +161,7 @@ function IndividualDay(props) {
                         <div className="line animatedLine"/>
                     </div>
 
-                    {/* <h2 className="locationTitle">Add Location</h2> */}
-
                     <input className="locationTitle" placeholder="Add Location" value={location} onChange={(e) => {setLocatoin(e.target.value)}}/>
-
-                    {/*//here-1*/}
-
-                    {/*Add Location Functionality (add value set to input and pass to events)*/}
 
                     <div className="addTime">
 
@@ -218,11 +186,6 @@ function IndividualDay(props) {
                                 <input value={endingMinute} onChange={(e) => setTime(e, 3)} placeholder="00" type="number" />
                             </div>}
                         </div>
-
-                        {/*<div className="alertContainer">*/}
-                        {/*    <h3> Make Alert </h3>*/}
-                        {/*    <input type="checkbox" />*/}
-                        {/*</div>*/}
                     </div>
                 </ul>
             </div>

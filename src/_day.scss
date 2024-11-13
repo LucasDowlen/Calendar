@@ -2,7 +2,7 @@
     header {
         display: flex;
         .Month {
-            margin: 0.6vw 0 0 5vw; //first value is dependent on differnce between .month font size and .day font size;
+            margin: 0.6vw 0 0 5vw; //first value is dependent on difference between .month font size and .day font size
             color: white;
             font-size: 3.8vw;
             font-weight: 500;
@@ -23,10 +23,6 @@
         grid-template-columns: repeat((24, 95.9vw / 12));
 
         border: 1px solid white;
-
-        //font-family: "Times New Roman", Times, serif;
-
-        //border: 1px solid white;
     }
 }
 
@@ -41,39 +37,18 @@
     color: white;
 
     height: calc(100vh - 9em);
-
-    //div {
-    //    padding-bottom: 0.6vw;
-    //    //border-bottom: 1px dashed white;
-    //}
 }
 
 .events {
-    //position: absolute;
     margin-top: calc(-100vh + 14em);
-    //padding-right: calc(95.9vw / 12 * 23);
     overflow: visible;
     div {
-        //margin: 0.5em 0 0.6vw 0.5vw;
         margin: 0.5em 0 0.6vw 0;
-        //margin-left: min(5vw);
-        //width: calc(95.9vw / 12 - 1vw);
-        //padding-left: 95.9vw/ 24;
         color: rgb(50, 13, 87);
         background:rgb(187,134,252);
         border-radius: 1vw;
         font-size: 1.15em;
 
         text-align: left;
-
-        //span {
-        //
-        //    position: fixed;
-        //    margin: 0;
-        //    padding: 0;
-        //    //width: 100vw;
-        //    //
-        //    //position: sticky;
-        //}
     }
 }

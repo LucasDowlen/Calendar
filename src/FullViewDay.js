@@ -4,20 +4,12 @@ import {useLocation} from 'react-router-dom';
 import IndividualHourBar from './individualHourBar';
 
 function FullViewDay() {
-
-    //get month as number not name
-
     const location = useLocation();
 
     let today = new Date();
     let yyyy = today.getFullYear();
 
     const [eventList, setList] = useState([]);
-
-
-    // setTimeout(() => {
-    //     console.log(location.state.day + " " + location.state.month + " " + yyyy);
-    // }, 1000)
 
     let hoursArray = [];
 
@@ -65,14 +57,12 @@ function FullViewDay() {
 
                         if ((value[1][2] !== "" && value[1][0]) && ((parseInt(value[1][2]) - parseInt(value[1][0])) > 0 || ((parseInt(value[1][2]) - parseInt(value[1][0])) === 0 && (parseInt(value[1][3]) - parseInt(value[1][1])) >= 1))){ //changed since ran
 
-                            let endingMinute = value[1][3]; //updated since empty value will auto defult to "00"
-
-                            // value[1][3] === "" ? endingMinute = "00" : endingMinute = value[1][3];
+                            let endingMinute = value[1][3];
 
                             let firstValueSet = parseInt(value[1][0]) * 60 + parseInt(value[1][1]) - 60;
                             let secondValueSet = parseInt(value[1][2]) * 60 + parseInt(endingMinute);
 
-                            margin = firstValueSet / 60 * (95.9 / 12); //last caculation in parenthesis is the width in vw of a single hour section.
+                            margin = firstValueSet / 60 * (95.9 / 12); //In parentheses is the width in vw of a single hour section.
                             distanceBetween = ((secondValueSet - firstValueSet) / 60 * (95.9 / 12));
 
                             console.log(distanceBetween);
@@ -98,7 +88,6 @@ function FullViewDay() {
                         value[2] !== "" ? locationText = `-- (at ${value[2]})` : locationText = "";
 
                         return <div key={index} style={{marginLeft: margin, width: distanceBetween, paddingLeft: "2vw"}}> {value[0]} {locationText} </div>
-                        // Temp: {value[1][0]}:{value[1][1]}
                     })}
                 </div>
             </div>

@@ -6,8 +6,7 @@
     list-style: hidden;
     overflow: hidden;
     cursor: default;
-    -webkit-touch-callout: none; /* iOS Safari */
-    //-khtml-user-select: none; /* Konqueror HTML */  //seems to not be compiling into the CSS file.
+    -webkit-touch-callout: none; // iOS Safari
     user-select: none;
 }
 
@@ -16,22 +15,16 @@ body{
 }
 
 input{
-    //-webkit-touch-callout: all; //gives error
-    //-khtml-user-select: all; //probably not compiling either...
     user-select: all;
 }
 
 .header{
     background: rgb(18,18,18);
     display: flex;
-    // height: calc(5.5vw - 1px);
     height: 20vw;
     border-bottom: 1px solid rgb(70, 70, 70);
 
     #displayDate{
-        // margin: 0.6vw 0 0 5vw;
-        // font-size: 7vw;
-
         margin: 7vw 0 0 10vw;
         font-size: 9vw;
     }
@@ -42,19 +35,9 @@ input{
         margin: 8vw 5vw 0 auto;
 
         .arrowIcon{
-            //margin: 2.5vw 0 0 0;
             color: white;
-            // font-size: 3vw;
             font-size: 9vw;
         }
-
-        // .leftArrow{
-        //     // margin: 0 0 0 auto;
-        // }
-    
-        // .rightArrow{
-        //     // margin: 0 0 0 auto;
-        // }
     }
 
     div{
@@ -70,8 +53,6 @@ input{
     grid-template-columns: repeat(7, auto);
 
     .day{
-        // border-right: 1px solid rgb(70, 70, 70);
-        // border-bottom: 1px solid rgb(70, 70, 70);
         text-align: center;
 
         height: calc((70vw) / 5);
@@ -84,75 +65,30 @@ input{
             border-radius: 2vw;
             color: white;
             font-size: 4.2vw;
-            // margin: .3vw .3vw 0 12vw;
             margin: 50% auto;
         }
     }
 
     .inputSection{ //inside .day
         display: none;
-        // z-index: 1;
-        // position: absolute;
-        // transform: translateY(-28%);
-        // background: rgb(46, 46, 46);
-        // border: .3px solid rgb(151, 147, 137);
-
-        // width: 250px;
-
-
-        div{
-            // padding: .4vw;
-            // color: white;
-            // font-size: 20px;
-        }
     }
 
     .menu{ //inside .day
         display: none;
-        // width: 13vw;
     }
 
     .eventList{ //inside .day
         display: none;
         .eventContainer{
-            // background:rgb(187,134,252);
-            // display: flex;
-            // border-radius: .3vw;
-            // margin: .2vw auto;
-            // width: 13vw;
-            // height: 1.1em;
-
             .event{
-                // text-align: left;
-
                 .eventText{
                     width: 11.5vw;
                     font-size: 14px;
                     margin: 0 0 0 0.5vw; //adjust so that the delete icon is not covered by text
                 }
             }
-
-            .removeEvent{
-                // position: relative;
-                // margin: 0.05vw 0 0 auto;
-                // // margin-top: 0.3vw;
-                // // margin-left: 12.5vw;
-
-                // img{
-                //     width: 1vw;
-                // }
-            }
         }
     }
-
-    // .day:hover{
-    //     background:rgb(44, 44, 44);
-    // }
-
-    //moved under Media Query
-    // .leftElement{
-    //     border-left: 1px solid rgb(70, 70, 70);
-    // } 
 
     .currentDay{
         color: rgb(50, 13, 87) !important;
@@ -227,7 +163,6 @@ input{
             input{
                 background: none;
                 border: none;
-                // border-bottom: 0.2vw solid rgb(100, 100, 100);
                 padding: 2px;
                 margin-top: 1vw;
                 height: 1.5vw;
@@ -235,20 +170,13 @@ input{
                 font-size: 1.05vw;
                 color: white;
                 outline: none;
-
-                // transition: all .3s;
             }
 
             input:focus ~ .animatedLine{
-
-                // border-bottom: 0.2vw solid rgb(187,134,252);
                 width: 10.25vw;
-
-                // border: 2px solid rgb(63, 63, 63);
-                // border-bottom: 2px solid rgb(53, 45, 83);
             }
 
-            input:focus::placeholder {
+            input:focus::placeholder{
                 color: transparent;
             }
 
@@ -260,7 +188,6 @@ input{
                 border-radius: .1vw;
 
                 border: 1px solid rgb(41, 65, 50);
-                // transition: all .3s;
             }
 
             a:hover{
@@ -276,15 +203,10 @@ input{
         .day{
             border-right: 1px solid rgb(70, 70, 70);
             border-bottom: 1px solid rgb(70, 70, 70);
-            // text-align: center;
     
             height: calc((100vh - 5.5vw) / 5 - 1px);
     
-            // transition: all .2s;
-    
             .dayTitle{
-                // border-radius: 1vw;
-                // color: white;
                 font-size: 2vw;
                 margin: .3vw 0 0 11.4vw;
                 width: auto;
@@ -296,27 +218,19 @@ input{
         }
 
         .inputSection{ //inside .day
-            //width: 16vw;
             display: block;
             z-index: 1;
             position: absolute;
             transform: translateY(-28%);
-            // background: #1d2d44;
             background: rgb(46, 46, 46);
             border: .3px solid rgb(151, 147, 137);
 
             width: 15vw;
 
-            // border-radius: 3px;
-
             h2{
                 padding: .4vw;
                 color: white;
                 font-size: 20px;
-
-                // &:hover{
-                //    background: #0d1321; 
-                // }
             }
 
             .locationTitle{
@@ -328,7 +242,6 @@ input{
                 color: white;
 
                 margin: 0.5vw 7.322vw 0 0;
-                // font-size: 1vw;
                 width: 6vw;
 
                 font-size: 0.9vw;
@@ -338,26 +251,16 @@ input{
                 border-bottom: 0.2vw solid rgb(187,134,252);
             }
 
-            // .locationTitle::placeholder{
-            //     margin-left: 2vw;
-            // }
-
             .locationTitle:focus::placeholder{
                 color: transparent;
             }
 
             .addTime {
-
-                //.s1title {
-                //    margin-right: 1vw;
-                //}
-
                 .firstTimeSection {
                     margin-top: 0.6vw;
                     display: flex;
                     justify-content: center;
                     color: #ffffff;
-                    //justify-content: flex-top;
 
                     h3 {
                         margin-top: -0.15em;
@@ -376,31 +279,8 @@ input{
                         margin: auto 0.5vw;
                     }
                 }
-
-                //.alertContainer {
-                //
-                //    padding-bottom: 0.6em;
-                //
-                //    display: flex;
-                //    //justify-content: center;
-                //
-                //    h3 {
-                //        margin-left: 1.5vw;
-                //        color: white;
-                //    }
-                //
-                //    input {
-                //        margin: auto 0 auto 1vw;
-                //    }
-                //
-                //}
-
-                //here
                 .TimeContainer {
-                    //padding: 0.1vw 0;
                     padding: 0 0.1vw 1vw 0;
-
-                    //transition: all 1s ease;
                 }
 
                 .alertContainer input:focus ~ .TimeContainer{
@@ -413,7 +293,6 @@ input{
                     margin-left: 4.55vw;
 
                     h3 {
-                        //text-align: center;
                         margin-top: -0.2em;
                         color: white;
                         height: 1em;
@@ -451,11 +330,6 @@ input{
             }
         }
 
-        // .menu{ //inside .day
-        //     display: block;
-        //     width: 16vw;
-        // }
-
         .eventList{ //inside .day
             display: block;
             .eventContainer{
@@ -475,15 +349,13 @@ input{
                         overflow: hidden;
                         white-space: nowrap;
                         font-size: 14px;
-                        margin: 0 0 0 0.5vw; //adjust so that the delete icon is not covered by text
+                        margin: 0 0 0 0.5vw;
                     }
                 }
 
                 .removeEvent{
                     position: relative;
                     margin: 0.05vw 0 0 auto;
-                    // margin-top: 0.3vw;
-                    // margin-left: 12.5vw;
 
                     img{
                         width: 1vw;

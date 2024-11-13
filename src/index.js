@@ -6,7 +6,7 @@ import FullViewDay from './FullViewDay';
 
 import "./style.css";
 
-
+//Defines where the browser redirects for subdomains
 ReactDOM.render(
   <React.StrictMode>
 
