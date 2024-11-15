@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.5",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0",
+    "react-icons": "^4.12.0",
     "react-scripts": "^1.1.5",
-    "sass": "^1.37.5",
-    "web-vitals": "^1.1.1"
+    "sass": "^1.81.0",
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,6 +38,6 @@
     ]
   },
   "devDependencies": {
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.3.4"
   }
 }
