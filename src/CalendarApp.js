@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import IndividualDay from './IndividualDay';
+import TutorialScreen from './TutorialScreen';
+
 import {BiLeftArrowAlt, BiRightArrowAlt} from "react-icons/bi";
 
 
@@ -32,6 +34,7 @@ constructor() {
         id: 0,
 
         currentIndividualDaysList: [],
+        showTutorial: true,
     };
 }
 
@@ -76,18 +79,22 @@ constructor() {
     console.log("New MonthValue: " + this.state.currentMonth);
 };
 
+hideTutorial = () => {
+    console.log("called");
+    this.setState({ showTutorial: false });
+    console.log("Called");
+};
+
 render() {
     return (
         <div className="App">
+            {this.state.showTutorial && (<TutorialScreen onDelete={this.hideTutorial} />)}
             <div className="header">
                 <div id="displayDate">{this.state.monthName}</div>
-
-
                 <div id="arrowsContainer">
                     <BiLeftArrowAlt className="arrowIcon leftArrow" onClick={() => this.changeMonth(-1)}/> 
                     <BiRightArrowAlt className="arrowIcon rightArrow" onClick={() => this.changeMonth(1)}/>
                 </div>
-
             </div>
             <div className="daysContainer">
                 {this.state.list.map((data) => {

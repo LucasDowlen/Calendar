@@ -30,7 +30,7 @@ input{
     }
 
     #arrowsContainer{
-        
+
         display: flex;
         margin: 8vw 5vw 0 auto;
 
@@ -45,6 +45,40 @@ input{
         color: white;
         font-size: 4vw;
         font-weight: 500;
+    }
+}
+
+.tutorialContainer {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+
+    div {
+      width: 700px;
+      height: 55vh;
+      margin: 20vh auto auto auto;
+      background: #373437;
+      padding: 10px;
+
+      color: white;
+      border: 1px solid rgb(255, 255, 255);
+    }
+
+    h1 {
+      margin: 1.5vh 1vw 0 1vw;
+    }
+
+    section {
+      margin: 4vh 1vw 0 1vw;
+      
+      h3 {
+        margin-top: 1vh;
+      }
+
+      .Exit {
+        color: rgb(255, 84, 138);
+        font-size: 16pt;
+      }
     }
 }
 
@@ -101,7 +135,7 @@ input{
         .day{
             .dayTitle{
                 font-size: 3.4vw;
-            }  
+            }
         }
     }
 }
@@ -119,22 +153,22 @@ input{
 
         #arrowsContainer{
             margin: 1.5vw 4vw 0 auto;
-    
+
             .arrowIcon{
                 font-size: 3.8vw;
             }
         }
-    } 
+    }
 
     .standardBg{ //inside daysContainer
         background: rgb(30,30,30);
-        
+
         .inputSection{
             opacity: 0;
             pointer-events: none;
         }
     }
-    
+
     .selectedBg{ //inside daysContainer
         background: rgb(46, 36, 66)!important;
     }
@@ -199,19 +233,19 @@ input{
     .daysContainer{
         // display: grid;
         // grid-template-columns: repeat(7, auto);
-    
+
         .day{
             border-right: 1px solid rgb(70, 70, 70);
             border-bottom: 1px solid rgb(70, 70, 70);
-    
+
             height: calc((100vh - 5.5vw) / 5 - 1px);
-    
+
             .dayTitle{
                 font-size: 2vw;
                 margin: .3vw 0 0 11.4vw;
                 width: auto;
             }
-        } 
+        }
 
         .day:hover{
             background:rgb(44, 44, 44);
@@ -367,7 +401,7 @@ input{
         .leftElement{
             border-left: 1px solid rgb(70, 70, 70);
         }
-    } 
+    }
 }
 
 @media all and (min-width: 1000px){
@@ -376,7 +410,7 @@ input{
             .dayTitle{
                 font-size: 1.6vw;
                 margin: .3vw .3vw 0 12vw;
-            }  
+            }
         }
     }
 }
@@ -386,7 +420,7 @@ input{
         .day{
             .dayTitle{
                 font-size: 1.2vw;
-            }  
+            }
         }
     }
 }

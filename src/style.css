@@ -37,8 +37,8 @@
 }
 .events div {
   margin: 0.5em 0 0.6vw 0;
-  color: #320d57;
-  background: #bb86fc;
+  color: rgb(50, 13, 87);
+  background: rgb(187, 134, 252);
   border-radius: 1vw;
   font-size: 1.15em;
   text-align: left;
@@ -51,23 +51,26 @@
   overflow: hidden;
   cursor: default;
   -webkit-touch-callout: none;
-  /* iOS Safari */
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 body {
-  background: #1b1b1b;
+  background: rgb(27, 27, 27);
 }
 
 input {
-  user-select: all;
+  -webkit-user-select: all;
+     -moz-user-select: all;
+          user-select: all;
 }
 
 .header {
-  background: #121212;
+  background: rgb(18, 18, 18);
   display: flex;
   height: 20vw;
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid rgb(70, 70, 70);
 }
 .header #displayDate {
   margin: 7vw 0 0 10vw;
@@ -88,13 +91,41 @@ input {
   font-weight: 500;
 }
 
+.tutorialContainer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+.tutorialContainer div {
+  width: 700px;
+  height: 55vh;
+  margin: 20vh auto auto auto;
+  background: #373437;
+  padding: 10px;
+  color: white;
+  border: 1px solid rgb(255, 255, 255);
+}
+.tutorialContainer h1 {
+  margin: 1.5vh 1vw 0 1vw;
+}
+.tutorialContainer section {
+  margin: 4vh 1vw 0 1vw;
+}
+.tutorialContainer section h3 {
+  margin-top: 1vh;
+}
+.tutorialContainer section .Exit {
+  color: rgb(255, 84, 138);
+  font-size: 16pt;
+}
+
 .daysContainer {
   display: grid;
   grid-template-columns: repeat(7, auto);
 }
 .daysContainer .day {
   text-align: center;
-  height: calc((70vw) / 5);
+  height: 14vw;
   transition: all 0.2s;
 }
 .daysContainer .day .dayTitle {
@@ -119,8 +150,8 @@ input {
   margin: 0 0 0 0.5vw;
 }
 .daysContainer .currentDay {
-  color: #320d57 !important;
-  background: #bb86fc;
+  color: rgb(50, 13, 87) !important;
+  background: rgb(187, 134, 252);
 }
 
 @media all and (min-width: 600px) {
@@ -142,19 +173,16 @@ input {
   .header #arrowsContainer .arrowIcon {
     font-size: 3.8vw;
   }
-
   .standardBg {
-    background: #1e1e1e;
+    background: rgb(30, 30, 30);
   }
   .standardBg .inputSection {
     opacity: 0;
     pointer-events: none;
   }
-
   .selectedBg {
-    background: #2e2442 !important;
+    background: rgb(46, 36, 66) !important;
   }
-
   .inputSection {
     opacity: 1;
     pointer-events: all;
@@ -164,12 +192,12 @@ input {
     margin: -0.15vw auto 0 0.82vw;
     width: 10.25vw;
     height: 0.15vw;
-    background: #615f63;
+    background: rgb(97, 95, 99);
     transition: all 0.25s;
   }
   .inputSection .inputContainer .animatedLine {
     width: 0;
-    background: #bb86fc;
+    background: rgb(187, 134, 252);
   }
   .inputSection .inputContainer input {
     background: none;
@@ -185,6 +213,9 @@ input {
   .inputSection .inputContainer input:focus ~ .animatedLine {
     width: 10.25vw;
   }
+  .inputSection .inputContainer input:focus::-moz-placeholder {
+    color: transparent;
+  }
   .inputSection .inputContainer input:focus::placeholder {
     color: transparent;
   }
@@ -194,15 +225,14 @@ input {
     font-size: 1vw;
     background: #3e5c76;
     border-radius: 0.1vw;
-    border: 1px solid #294132;
+    border: 1px solid rgb(41, 65, 50);
   }
   .inputSection .inputContainer a:hover {
     background: #748cab;
   }
-
   .daysContainer .day {
-    border-right: 1px solid #464646;
-    border-bottom: 1px solid #464646;
+    border-right: 1px solid rgb(70, 70, 70);
+    border-bottom: 1px solid rgb(70, 70, 70);
     height: calc((100vh - 5.5vw) / 5 - 1px);
   }
   .daysContainer .day .dayTitle {
@@ -211,15 +241,15 @@ input {
     width: auto;
   }
   .daysContainer .day:hover {
-    background: #2c2c2c;
+    background: rgb(44, 44, 44);
   }
   .daysContainer .inputSection {
     display: block;
     z-index: 1;
     position: absolute;
     transform: translateY(-28%);
-    background: #2e2e2e;
-    border: 0.3px solid #979389;
+    background: rgb(46, 46, 46);
+    border: 0.3px solid rgb(151, 147, 137);
     width: 15vw;
   }
   .daysContainer .inputSection h2 {
@@ -231,14 +261,17 @@ input {
     background: none;
     border: none;
     outline: none;
-    border-bottom: 0.2vw solid #615f63;
+    border-bottom: 0.2vw solid rgb(97, 95, 99);
     color: white;
     margin: 0.5vw 7.322vw 0 0;
     width: 6vw;
     font-size: 0.9vw;
   }
   .daysContainer .inputSection .locationTitle:focus {
-    border-bottom: 0.2vw solid #bb86fc;
+    border-bottom: 0.2vw solid rgb(187, 134, 252);
+  }
+  .daysContainer .inputSection .locationTitle:focus::-moz-placeholder {
+    color: transparent;
   }
   .daysContainer .inputSection .locationTitle:focus::placeholder {
     color: transparent;
@@ -289,15 +322,21 @@ input {
     font-size: 1em;
   }
   .daysContainer .inputSection .addTime .Time input::-webkit-outer-spin-button,
-.daysContainer .inputSection .addTime .Time input::-webkit-inner-spin-button {
+  .daysContainer .inputSection .addTime .Time input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
   .daysContainer .inputSection .addTime .Time input:focus {
     background: #594291;
   }
+  .daysContainer .inputSection .addTime .Time input::-moz-placeholder {
+    font-size: 1em;
+  }
   .daysContainer .inputSection .addTime .Time input::placeholder {
     font-size: 1em;
+  }
+  .daysContainer .inputSection .addTime .Time input:focus::-moz-placeholder {
+    color: transparent;
   }
   .daysContainer .inputSection .addTime .Time input:focus::placeholder {
     color: transparent;
@@ -306,7 +345,7 @@ input {
     display: block;
   }
   .daysContainer .eventList .eventContainer {
-    background: #bb86fc;
+    background: rgb(187, 134, 252);
     display: flex;
     border-radius: 0.3vw;
     margin: 0.2vw auto;
@@ -331,7 +370,7 @@ input {
     width: 1vw;
   }
   .daysContainer .leftElement {
-    border-left: 1px solid #464646;
+    border-left: 1px solid rgb(70, 70, 70);
   }
 }
 @media all and (min-width: 1000px) {
@@ -344,6 +383,4 @@ input {
   .daysContainer .day .dayTitle {
     font-size: 1.2vw;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
